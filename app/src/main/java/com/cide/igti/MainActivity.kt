@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.cide.igti.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    val tag: String = this.javaClass.simpleName
+    private val tag: String = this.javaClass.simpleName
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
