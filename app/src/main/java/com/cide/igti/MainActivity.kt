@@ -2,20 +2,28 @@ package com.cide.igti
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.cide.igti.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private val tag: String = this.javaClass.simpleName
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
         Log.i(tag, "This is onCreate")
 
         binding.let {
             it.buttonClickHere.setOnClickListener {
-                val intent = Intent(this, SecondActivity::class.java)
+                val intent = Intent(this, SecondActivity::class.java).apply {
+                    putExtra(EXTRA_MESSAGE, "")
+                }
                 startActivity(intent)
             }
         }
